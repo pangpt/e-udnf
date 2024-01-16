@@ -35,7 +35,7 @@
                     </div>
                     <div class="card-body order-datatable">
                         <div class="btn-popup pull-right">
-                            <button class="btn btn-primary"><i class="fa fa-plus"></i> Buat Undangan</button>
+                            <a href="{{route('undangan-create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Buat Undangan</a>
                         </div>
                         <table class="display" id="basic-1">
                             <thead>

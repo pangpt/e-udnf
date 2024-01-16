@@ -12,8 +12,8 @@
         </div>
         <ul class="sidebar-menu">
             <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Dashboard</span></a></li>
-            <li><a class="sidebar-header" href="index.html"><i data-feather="chrome"></i><span>Manajemen Rapat</span></a></li>
-            <li><a class="sidebar-header" href="index.html"><i data-feather="chrome"></i><span>Manajemen Undangan</span></a></li>
+            <li><a class="sidebar-header" href="{{route('rapat-index')}}"><i data-feather="chrome"></i><span>Manajemen Rapat</span></a></li>
+            <li><a class="sidebar-header" href="{{route('undangan-index')}}"><i data-feather="chrome"></i><span>Manajemen Undangan</span></a></li>
             <li><a class="sidebar-header" href=""><i data-feather="users"></i><span>Laporan</span><i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="sidebar-submenu">
                     <li><a href="list-vendor.html"><i class="fa fa-circle"></i>Vendor List</a></li>

@@ -25,6 +25,14 @@ Route::group(['middleware' => 'ceklogin'], function() {
     $controller_path = 'App\Http\Controllers';
 
     Route::get('/dashboard', $controller_path.'\DashboardController@dashboard')->name('dashboard');
+
+    Route::get('/rapat', $controller_path.'\MeetingController@index')->name('rapat-index');
+
+    Route::get('/undangan', $controller_path.'\InvitationController@index')->name('undangan-index');
+    Route::get('/undangan/tambah', $controller_path.'\InvitationController@create')->name('undangan-create');
+
+    Route::get('/cetak-word', $controller_path.'\InvitationController@cetak')->name('undangan-cetak');
+
 });
 
 
