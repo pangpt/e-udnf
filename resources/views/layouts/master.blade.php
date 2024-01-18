@@ -201,6 +201,7 @@
 </div>
 
 @include('layouts.script')
+@yield('script-after')
 
 </body>
 </html>

@@ -30,8 +30,9 @@ Route::group(['middleware' => 'ceklogin'], function() {
 
     Route::get('/undangan', $controller_path.'\InvitationController@index')->name('undangan-index');
     Route::get('/undangan/tambah', $controller_path.'\InvitationController@create')->name('undangan-create');
+    Route::post('/undangan/store', $controller_path.'\InvitationController@store')->name('undangan-store');
 
-    Route::get('/cetak-word', $controller_path.'\InvitationController@cetak')->name('undangan-cetak');
+    Route::get('/cetak-word/{id}', $controller_path.'\InvitationController@cetak')->name('undangan-cetak');
 
 });
 

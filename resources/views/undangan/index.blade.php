@@ -37,7 +37,7 @@
                         <div class="btn-popup pull-right">
                             <a href="{{route('undangan-create')}}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Buat Undangan</a>
                         </div>
-                        <table class="display" id="basic-1">
+                        <table class="display" id="tableInv">
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -52,18 +52,21 @@
                             </tr>
                             </thead>
                             <tbody>
+                                @foreach($inv as $data)
                             <tr>
-                                <td>1</td>
-                                <td>12/KPA.W20/I/2024</td>
-                                <td>12 Januari 2024</td>
-                                <td>-</td>
-                                <td>Undangan Rapat Tim ZI</td>
-                                <td>Senin, 16 Januari 2024</td>
-                                <td>Pembentukan Tim ZI</td>
-                                <td>HERIYAH -Ketua PA</td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$data->no_surat}}</td>
+                                <td>{{ \Carbon\Carbon::parse($data->tanggal_surat)->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
+                                </td>
+                                <td>{{$data->lampiran}}</td>
+                                <td>{{$data->perihal}}</td>
+                                <td>{{ \Carbon\Carbon::parse($data->tanggal_pelaksanaan)->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
+                                </td>
+                                <td>{{$data->tujuan_undangan}}</td>
+                                <td>{{$data->ttd}}</td>
                                 <td>
                                     <div>
-                                        <a href="">
+                                        <a href="{{route('undangan-cetak',['id' => $data->id])}}">
                                             <i class="fa fa-print font-alert"></i>
                                         </a>
                                         <a href="">
@@ -73,6 +76,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -83,4 +87,16 @@
     <!-- Container-fluid Ends-->
 
 </div>
+@endsection
+@section('script-after')
+<script>
+$   (document).ready(function() {
+      $('#tableInv').DataTable({
+        "ordering": false, // Menonaktifkan fitur pengurutan (sort)
+        "language": {
+          "searchPlaceholder": "NIP / Nama" // Menambahkan placeholder pada input search
+        }
+      });
+    });
+</script>
 @endsection
